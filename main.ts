@@ -46,17 +46,30 @@ function createFood () {
     food.setPosition(randint(1, 10) * 15 - 2, randint(1, 8) * 15 - 7)
 }
 function addSnake () {
-    x = snakeList[0].x
-    y = snakeList[0].y
-    snakeList.unshift(sprites.create(assets.image`snake`, SpriteKind.Player))
-    if (direction == 1) {
-        snakeList[0].setPosition(x, y - 15)
-    } else if (direction == 3) {
-        snakeList[0].setPosition(x, y + 15)
-    } else if (direction == 4) {
-        snakeList[0].setPosition(x + 15, y)
-    } else {
-        snakeList[0].setPosition(x - 15, y)
+    x = snakeList[snakeList.length-1].x
+    y = snakeList[snakeList.length - 1].y
+    snakeList.push(sprites.create(assets.image`snake`, SpriteKind.Player))
+    let i = snakeList.length - 1
+    if(snakeList.length == 2){
+        if (direction == 1) {
+            snakeList[i].setPosition(x, y + 15)
+        } else if (direction == 3) {
+            snakeList[i].setPosition(x, y - 15)
+        } else if (direction == 4) {
+            snakeList[i].setPosition(x - 15, y)
+        } else {
+            snakeList[i].setPosition(x + 15, y)
+        }
+    }else{
+        if (direction == 1) {
+            snakeList[i].setPosition(x, y)
+        } else if (direction == 3) {
+            snakeList[i].setPosition(x, y)
+        } else if (direction == 4) {
+            snakeList[i].setPosition(x, y)
+        } else {
+            snakeList[i].setPosition(x, y)
+        }
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -65,8 +78,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
-    game.splash("Game Over")
-    highScore(game.askForString("Username"), info.score())
+    if(sprite == snakeList[0] || otherSprite == snakeList[0]){
+        game.splash("Game Over")
+        highScore(game.askForString("Username"), info.score())
+    }
 })
 // overlaps
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
