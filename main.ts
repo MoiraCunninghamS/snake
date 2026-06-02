@@ -16,6 +16,7 @@ function highScore (name: string, score: number) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Food)
     sprites.destroyAllSpritesOfKind(SpriteKind.Grid)
     sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Face)
     info.setScore(0)
     for (let index = 0; index <= 2; index++) {
         if (score >= highScoreNums[index]) {
@@ -97,7 +98,8 @@ function start () {
     border = sprites.create(assets.image`border`, SpriteKind.Enemy)
     snakeList = [sprites.create(assets.image`snake`, SpriteKind.Player)]
     snakeList[0].setPosition(88, 23)
-    // face = sprites.create(assets.image`snake_head_With_Tongue`, SpriteKind.Face)
+    face = sprites.create(assets.image`snake_head_With_Tongue`, SpriteKind.Face)
+    animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue`, assets.image`snake_head`], 500, true)
     direction = 2
     createFood()
 }
@@ -143,6 +145,7 @@ game.onUpdateInterval(600, function () {
     move(snakeList[0].x, snakeList[0].y)
     console.log(direction)
 })
-// game.onUpdate(function() {
-//     face.setPosition(snakeList[0].x, snakeList[0].y)
-// })
+game.onUpdate(function() {
+    face.setPosition(snakeList[0].x, snakeList[0].y)
+    face.z = 100
+})
