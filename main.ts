@@ -61,15 +61,7 @@ function addSnake () {
             snakeList[i].setPosition(x + 15, y)
         }
     }else{
-        if (direction == 1) {
-            snakeList[i].setPosition(x, y)
-        } else if (direction == 3) {
-            snakeList[i].setPosition(x, y)
-        } else if (direction == 4) {
-            snakeList[i].setPosition(x, y)
-        } else {
-            snakeList[i].setPosition(x, y)
-        }
+            snakeList[i].setPosition(-20, -20)
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
