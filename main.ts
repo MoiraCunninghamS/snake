@@ -44,29 +44,29 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 function createFood () {
     food = sprites.create(assets.image`Food`, SpriteKind.Food)
     food.setPosition(randint(1, 10) * 15 - 2, randint(1, 8) * 15 - 7)
-    for (let i = 0; i < snakeList.length - 1; i++) {
-        if(food.x == snakeList[i].x && food.y == snakeList[i].y){
+    for (let i = 0; i <= snakeList.length - 1 - 1; i++) {
+        if (food.x == snakeList[i].x && food.y == snakeList[i].y) {
             sprites.destroy(food)
         }
     }
 }
 function addSnake () {
-    x = snakeList[snakeList.length-1].x
+    x = snakeList[snakeList.length - 1].x
     y = snakeList[snakeList.length - 1].y
     snakeList.push(sprites.create(assets.image`snake`, SpriteKind.Player))
-    let i = snakeList.length - 1
-    if(snakeList.length == 2){
+    j = snakeList.length - 1
+    if (snakeList.length == 2) {
         if (direction == 1) {
-            snakeList[i].setPosition(x, y + 15)
+            snakeList[j].setPosition(x, y + 15)
         } else if (direction == 3) {
-            snakeList[i].setPosition(x, y - 15)
+            snakeList[j].setPosition(x, y - 15)
         } else if (direction == 4) {
-            snakeList[i].setPosition(x - 15, y)
+            snakeList[j].setPosition(x - 15, y)
         } else {
-            snakeList[i].setPosition(x + 15, y)
+            snakeList[j].setPosition(x + 15, y)
         }
-    }else{
-            snakeList[i].setPosition(-20, -20)
+    } else {
+        snakeList[j].setPosition(-20, -20)
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -75,7 +75,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
-    if(sprite == snakeList[0] || otherSprite == snakeList[0]){
+    if (sprite == snakeList[0] || otherSprite == snakeList[0]) {
         game.splash("Game Over")
         highScore(game.askForString("Username"), info.score())
     }
@@ -98,15 +98,15 @@ function start () {
     createFood()
 }
 function move (x: number, y: number) {
-    i = snakeList.length - 1
+    k = snakeList.length - 1
     if (direction == 1) {
-        snakeList[i].setPosition(x, y - 15)
+        snakeList[k].setPosition(x, y - 15)
     } else if (direction == 3) {
-        snakeList[i].setPosition(x, y + 15)
+        snakeList[k].setPosition(x, y + 15)
     } else if (direction == 4) {
-        snakeList[i].setPosition(x + 15, y)
+        snakeList[k].setPosition(x + 15, y)
     } else {
-        snakeList[i].setPosition(x - 15, y)
+        snakeList[k].setPosition(x - 15, y)
     }
     snakeList.unshift(snakeList.pop())
 }
@@ -114,12 +114,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.splash("Game Over")
     highScore(game.askForString("Username"), info.score())
 })
-let i = 0
+let k = 0
 let border: Sprite = null
 let grid: Sprite = null
+let j = 0
 let y = 0
-let snakeList: Sprite[] = []
 let x = 0
+let snakeList: Sprite[] = []
 let food: Sprite = null
 let direction = 0
 let highScoreNames: string[] = []
