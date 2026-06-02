@@ -1,6 +1,9 @@
 namespace SpriteKind {
     export const Grid = SpriteKind.create()
 }
+namespace SpriteKind {
+    export const Face = SpriteKind.create()
+}
 // controls
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 3) {
@@ -94,6 +97,7 @@ function start () {
     border = sprites.create(assets.image`border`, SpriteKind.Enemy)
     snakeList = [sprites.create(assets.image`snake`, SpriteKind.Player)]
     snakeList[0].setPosition(88, 23)
+    // face = sprites.create(assets.image`snake_head_With_Tongue`, SpriteKind.Face)
     direction = 2
     createFood()
 }
@@ -126,6 +130,7 @@ let direction = 0
 let highScoreNames: string[] = []
 let highScoreNums: number[] = []
 let snakei = 0
+let face: Sprite = null
 highScoreNums = [0, 0, 0]
 highScoreNames = ["a", "b", "c"]
 start()
@@ -138,3 +143,6 @@ game.onUpdateInterval(600, function () {
     move(snakeList[0].x, snakeList[0].y)
     console.log(direction)
 })
+// game.onUpdate(function() {
+//     face.setPosition(snakeList[0].x, snakeList[0].y)
+// })
