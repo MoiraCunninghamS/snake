@@ -44,6 +44,11 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 function createFood () {
     food = sprites.create(assets.image`Food`, SpriteKind.Food)
     food.setPosition(randint(1, 10) * 15 - 2, randint(1, 8) * 15 - 7)
+    for (let i = 0; i < snakeList.length - 1; i++) {
+        if(food.x == snakeList[i].x && food.y == snakeList[i].y){
+            sprites.destroy(food)
+        }
+    }
 }
 function addSnake () {
     x = snakeList[snakeList.length-1].x
