@@ -38,11 +38,15 @@ function highScore (name: string, score: number) {
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 4) {
         direction = 2
+        face.setImage(assets.image`snake_head_With_Tongue`)
+        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue`, assets.image`snake_head`], 500, true)
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 2) {
         direction = 4
+        face.setImage(assets.image`snake_head_With_Tongue_R`)
+        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue_R`, assets.image`snake_head_R`], 500, true)
     }
 })
 function createFood () {
