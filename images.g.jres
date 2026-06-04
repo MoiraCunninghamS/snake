@@ -39,6 +39,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "snake_head_R"
     },
+    "image9": {
+        "data": "hwQPACMAAAAAAAAAAAAAd3d3BwAAAAAAAAAAAAAAAAAAAHd3d3d3BwAAAAAAAAAAAAAAAABwd3d3d3d3AAAAAAAAAAAAAAAAAHB3d3d3d3cAAAAAAAAAAAAAAAAAd3d3d3d3dwcAAAAAAAAAAgAAAAB3d/f/f3d3BwAAAAAAAAAgAAAAAHd39/9/d3cHAAAAAAAAACAiIiIid3f3/393dwcAAAAAAAAAIAAAAAB3d/cff3d3BwAAAAAAAAACAAAAAHd39/9xd3cHAAAAAAAAAAAAAAAAd3d3d3d3dwcAAAAAAAAAAAAAAABwd3d3d3d3AAAAAAAAAAAAAAAAAHB3d3d3d3cAAAAAAAAAAAAAAAAAAHd3d3d3BwAAAAAAAAAAAAAAAAAAAHd3dwcAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "snake_head_With_Tongue_U"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
