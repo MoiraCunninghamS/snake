@@ -8,6 +8,8 @@ namespace SpriteKind {
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 3) {
         direction = 1
+        face.setImage(assets.image`snake_head_With_Tongue_U`)
+        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue_U`, assets.image`snake_head_U`], 700, true)
     }
 })
 // functions
@@ -39,14 +41,14 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 4) {
         direction = 2
         face.setImage(assets.image`snake_head_With_Tongue`)
-        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue`, assets.image`snake_head`], 500, true)
+        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue`, assets.image`snake_head`], 700, true)
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 2) {
         direction = 4
         face.setImage(assets.image`snake_head_With_Tongue_R`)
-        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue_R`, assets.image`snake_head_R`], 500, true)
+        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue_R`, assets.image`snake_head_R`], 700, true)
     }
 })
 function createFood () {
@@ -55,6 +57,7 @@ function createFood () {
     for (let i = 0; i <= snakeList.length - 1 - 1; i++) {
         if (food.x == snakeList[i].x && food.y == snakeList[i].y) {
             sprites.destroy(food)
+            createFood()
         }
     }
 }
