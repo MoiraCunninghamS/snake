@@ -54,6 +54,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "snake_head_With_Tongue_D"
     },
+    "image12": {
+        "data": "hwQPACMAAAAAAAAAAAAAd3d3BwAAAAAAAAAAAAAAAAAAAHd3d3d3BwAAAAAAAAAAAAAAAABwd3d3d3d3AAAAAAAAAAAAAAAAAHB3d3d3d3cAAAAAAAAAAAAAAAAAd3d3d3d3dwcAAAAAAAAAAAAAAAB3d3f//3d3BwAAAAAAAAAAAAAAAHd3d///d3cHAAAAAAAAAAAAAAAAd3d3//93dwcAAAAAAAAAAAAAAAB3d3cf/3d3BwAAAAAAAAAAAAAAAHd3d/H/d3cHAAAAAAAAAAAAAAAAd3d3d3d3dwcAAAAAAAAAAAAAAABwd3d3d3d3AAAAAAAAAAAAAAAAAHB3d3d3d3cAAAAAAAAAAAAAAAAAAHd3d3d3BwAAAAAAAAAAAAAAAAAAAHd3dwcAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "snake_head_D"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

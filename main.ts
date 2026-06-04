@@ -83,6 +83,8 @@ function addSnake () {
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction != 1) {
         direction = 3
+        face.setImage(assets.image`snake_head_With_Tongue_D`)
+        animation.runImageAnimation(face, [assets.image`snake_head_With_Tongue_D`, assets.image`snake_head_D`], 700, true)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
